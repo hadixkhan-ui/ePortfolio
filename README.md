@@ -5,16 +5,19 @@ A focused Computer Engineering ePortfolio draft for Georgia Tech's ECE 1100. Bui
 ## Getting Started
 
 ```bash
-# Serve locally
+cd docs
 python3 -m http.server 8000
 ```
 
-Open `http://localhost:8000` and explore `index.html`.
+Then open `http://localhost:8000` to browse the tabbed layout.
 
 ## Structure
 
-- `index.html` – Single-page ePortfolio covering summary, bio, goals, coursework, skills, and contact information.
-- `styles.css` – Warm, modern palette and responsive layout inspired by the provided color guide.
+All site assets live in `/docs` so GitHub Pages can publish from the default `main /docs` combination:
+
+- `docs/index.html` – Single-page ePortfolio covering summary, bio, goals, coursework, skills, and contact information.
+- `docs/styles.css` – Warm, modern palette and responsive layout inspired by the provided color guide.
+- `docs/tabs.js` – Accessible tab interactions and keyboard support.
 
 ## Customization Notes
 
@@ -27,7 +30,7 @@ Open `http://localhost:8000` and explore `index.html`.
 1. Commit and push the latest version of this repository to GitHub (e.g., the `main` branch).
 2. In the GitHub UI, navigate to **Settings → Pages** for this repository.
 3. Under **Source**, choose **Deploy from a branch**.
-4. Set **Branch** to the branch you pushed (typically `main`) and **Folder** to `/root`, then click **Save**.
+4. Set **Branch** to `main` and **Folder** to `/docs`, then click **Save**.
 5. Wait ~1 minute for GitHub Pages to build; a success banner with the published URL will appear in the Pages settings card.
 6. Visit the provided URL (e.g., `https://<username>.github.io/<repo>/`) to view the live site. Each new push to that branch will redeploy automatically.
 
