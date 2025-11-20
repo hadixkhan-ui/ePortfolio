@@ -36,6 +36,13 @@ A GitHub Actions workflow (`.github/workflows/deploy-pages.yml`) deploys the con
 3. After each push, the **Actions** tab will show the **Deploy GitHub Pages** run. When it completes, the run summary lists the live URL.
 4. Visit the published URL to confirm. Changes to `docs/` will redeploy automatically on the next push.
 
+**Quick publish checklist (no more binary headshot required):**
+
+- Make sure your latest changes are committed and pushed to `main`.
+- Verify your repo has the `.github/workflows/deploy-pages.yml` file intact (this repo does).
+- In **Settings → Pages**, confirm the source is **GitHub Actions** and click **Save** if needed.
+- Wait for the **Deploy GitHub Pages** workflow to finish, then open the URL it provides. The site pulls everything from `docs/` and uses the built-in placeholder avatar, so no unsupported binary image is needed to publish.
+
 ### Manual (fallback)
 
 1. Commit and push the latest version of this repository to GitHub (e.g., the `main` branch).
