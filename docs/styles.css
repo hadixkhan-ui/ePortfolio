@@ -39,6 +39,53 @@ section {
   overflow: hidden;
 }
 
+.top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(42, 40, 38, 0.08);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+}
+
+.top-nav__brand {
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.top-nav__links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.top-nav__link {
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease, border 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.top-nav__link:hover,
+.top-nav__link:focus-visible {
+  background: var(--sand);
+  border-color: rgba(42, 40, 38, 0.12);
+  outline: none;
+}
+
+.top-nav__link.js-tab-link {
+  border: 1px solid rgba(42, 40, 38, 0.12);
+}
+
 .hero__media {
   align-self: center;
   justify-self: center;

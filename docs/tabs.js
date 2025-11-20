@@ -1,4 +1,4 @@
-const activateTab = (tabName) => {
+const activateTab = (tabName, shouldUpdateHash = false) => {
   const tabs = document.querySelectorAll('[role="tab"]');
   const panels = document.querySelectorAll('[role="tabpanel"]');
   tabs.forEach((tab) => {
@@ -11,21 +11,29 @@ const activateTab = (tabName) => {
     const isMatch = panel.dataset.tab === tabName;
     panel.classList.toggle('is-active', isMatch);
   });
+
+  if (shouldUpdateHash) {
+    const panel = document.querySelector(`[data-tab="${tabName}"][role="tabpanel"]`);
+    if (panel?.id) {
+      history.replaceState(null, '', `#${panel.id}`);
+    }
+  }
 };
 
 document.addEventListener('DOMContentLoaded', () => {
   document.body.classList.add('js-enabled');
   const tabs = document.querySelectorAll('[role="tab"]');
   const tabLinks = document.querySelectorAll('.js-tab-link');
+  const hashTarget = window.location.hash.replace('#', '');
 
   tabs.forEach((tab) => {
     tab.addEventListener('click', () => {
-      activateTab(tab.dataset.tab);
+      activateTab(tab.dataset.tab, true);
     });
     tab.addEventListener('keydown', (event) => {
       if (event.key === 'Enter' || event.key === ' ') {
         event.preventDefault();
-        activateTab(tab.dataset.tab);
+        activateTab(tab.dataset.tab, true);
       }
     });
   });
@@ -35,10 +43,17 @@ document.addEventListener('DOMContentLoaded', () => {
       const target = link.dataset.tabTarget;
       if (target) {
         event.preventDefault();
-        activateTab(target);
+        activateTab(target, true);
         const targetTab = document.querySelector(`[data-tab="${target}"][role="tab"]`);
         targetTab?.focus();
       }
     });
   });
+
+  if (hashTarget) {
+    const matchingTab = document.querySelector(`[data-tab="${hashTarget}"][role="tab"]`);
+    if (matchingTab) {
+      activateTab(hashTarget);
+    }
+  }
 });
