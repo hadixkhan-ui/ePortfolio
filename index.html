@@ -95,6 +95,16 @@
           <button
             role="tab"
             aria-selected="false"
+            id="tab-discovery"
+            data-tab="discovery"
+            class="tab-nav__btn"
+            tabindex="-1"
+          >
+            Discovery Project
+          </button>
+          <button
+            role="tab"
+            aria-selected="false"
             id="tab-skills"
             data-tab="skills"
             class="tab-nav__btn"
@@ -317,6 +327,50 @@
                   "small improvements compound" mindset.
                 </p>
               </div>
+            </article>
+          </div>
+        </section>
+
+        <section
+          class="section tab-panel"
+          id="discovery"
+          role="tabpanel"
+          aria-labelledby="tab-discovery"
+          data-tab="discovery"
+        >
+          <div class="section__header">
+            <h2>Discovery Project: Arduino Traffic Light</h2>
+            <p>Building timing intuition with LEDs, resistors, and clean wiring</p>
+          </div>
+          <div class="project">
+            <article>
+              <h3>Overview</h3>
+              <p>
+                Prototyped a traffic-light controller on an Arduino Uno to
+                practice translating timing diagrams into a predictable embedded
+                system. The breadboard build used red, yellow, and green LEDs
+                with 220Ω resistors and clearly labeled jumpers for repeatable
+                assembly.
+              </p>
+              <ul>
+                <li>Sequenced states for north–south vs. east–west movement</li>
+                <li>Used non-blocking delays to keep timing adjustable</li>
+                <li>Documented wiring color codes to reduce setup errors</li>
+              </ul>
+            </article>
+            <article>
+              <h3>What I Learned</h3>
+              <p>
+                Watching the LEDs cycle made the connection between finite state
+                machines and real hardware obvious: clear transitions prevent
+                conflicts. Tuning each phase (green, yellow, all-red) reinforced
+                how small timing changes shift user experience and safety.
+              </p>
+              <p>
+                Next steps include adding photoresistors for night-mode timing
+                and migrating the logic to a state diagram before moving to
+                SystemVerilog labs.
+              </p>
             </article>
           </div>
         </section>
